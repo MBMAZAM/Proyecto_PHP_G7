@@ -3,6 +3,8 @@ carpeta vista
 
 pantalla de inicio
 
+
+home.php
 <?php 
 require_once('include/session.php'); 
 $home_menu=1;
@@ -91,6 +93,8 @@ $home_menu=1;
 </html>
 
 
+
+
 index.php
 
 
@@ -146,90 +150,7 @@ index.php
   </body>
 </html>
 
-index.php
 
-<?php 
-require_once('include/session.php'); 
-$item_menu=1;
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title> Lista de productos - Sistema de Inventario Farmacéutico</title>
-
-   
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
-
-    
-    <link href="assets/css/sb-admin.css" rel="stylesheet">
-
-    
-    <link href="assets/css/plugins/morris.css" rel="stylesheet">
-
-    
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <link href="assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
-
-
-</head>
-
-<body>
-
-    <div id="wrapper">
-
-       
-        <?php include('navbar.php');?>
-
-        <div id="page-wrapper">
-
-            <div class="container-fluid">
-
-              
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                        </h1>
-                    </div>
-                </div>
-              
-                <button class="btn btn-default" id="add-new-item">Agregar producto
-                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-                </button>
-               <div id="all-item"></div>
-
-            </div>
-           
-
-        </div>
-     
-
-    </div>
-  
-
-<?php include_once('modal/add_new_item.php'); ?>
-<?php include_once('modal/message.php'); ?>
-
-<script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery-1.12.3.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="assets/js/dataTables.bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/js/regis.js"></script>
-
-
-</body>
-
-</html>
 
 
 navbar.php
@@ -283,6 +204,9 @@ navbar.php
             </div>
            
         </nav>
+	
+	
+	
 
 product.php
 
@@ -377,6 +301,9 @@ product.php
 </html>
 
 
+
+
+
 sales.php
 
 <?php
@@ -467,6 +394,10 @@ sales.php
 
 </html>
 
+
+
+
+
 stock.php
 
 <?php
@@ -550,6 +481,9 @@ stock.php
 
 </html>
 
+
+
+
 logout.php
 
 <?php 
@@ -564,6 +498,9 @@ unset($_SESSION['logged_type']);
 if(!isset($_SESSION['logged_id'])){
 	header('location: index.php');
 }
+
+
+
 
 
 home.php
@@ -656,6 +593,10 @@ $home_menu=1;
 </html>
 
 
+
+
+
+
 carpeta modal
 
 add_new_item.php
@@ -742,6 +683,10 @@ $types = $db->getRows($sql);
 $db->Disconnect();
  ?>
  
+ 
+ 
+ 
+ 
 confirmacion.php
 
 <div class="modal fade" id="modal-confirmation">
@@ -774,6 +719,11 @@ confirmacion.php
 	</div>
 </div>
 
+
+
+
+
+
 message.php
 
  <div class="modal fade" id="modal-message">
@@ -794,6 +744,11 @@ message.php
 		</div>
 	</div>
 </div>
+
+
+
+
+
 
 stock.php
 
@@ -871,6 +826,13 @@ stock.php
 	</div>
 </div>
 
+
+
+
+
+
+
+
 to_cart.php
 
 <?php 
@@ -947,6 +909,11 @@ to_cart.php
 	</div>
 </div>
 
+
+
+
+
+
 carpeta interface
 
 icart.php
@@ -960,6 +927,9 @@ interface iCart{
 	public function allCart();
 }
 
+
+
+
 iexpired.php
 
 <?php 
@@ -967,6 +937,9 @@ interface iExpired{
 	public function add_expired($name, $price, $qty, $expiredDate);
 	public function all_expired();
 }
+
+
+
 
 item.php
 
@@ -978,6 +951,8 @@ interface iItem{
 	public function edit_item($item_id, $iName, $iPrice, $type_id, $code, $brand, $grams);
 }
 
+
+
 isales.php
 
 <?php 
@@ -985,6 +960,9 @@ interface iSales{
 	public function new_sales($code,$generic,$brand,$gram,$type,$qty,$price);
 	public function daily_sales($date);
 }
+
+
+
 
 istock.php
 
@@ -999,6 +977,8 @@ interface iStock {
 	public function get_stockQty($stock_id);
 	public function add_fuck($item_id, $qty, $xDate, $manu, $purc);
 }
+
+
 
 
 itransaccion.php
@@ -1030,7 +1010,13 @@ if(!isset($_SESSION['logged_id'])){
 	die('Access is Denied!');
 }
 
+
+
+
 carpeta database
+
+
+
 
 connection.php
 
@@ -1071,6 +1057,11 @@ class Connection{
 
 }
  ?>
+ 
+ 
+ 
+ 
+ 
  
  database.php
  
@@ -1181,7 +1172,14 @@ class Database extends Connection{
  ?>
  
  
+ 
+ 
+ 
  carpeta class
+ 
+ 
+ 
+ 
  
  cart.php
  <?php
@@ -1237,6 +1235,10 @@ class Cart extends Database implements iCart {
 $cart = new Cart();
 
 
+
+
+
+
 expired.php
 
 <?php
@@ -1260,6 +1262,10 @@ class Expired extends Database implements iExpired {
 }
 
 $expired = new Expired();
+
+
+
+
 
 
 item.php
@@ -1303,6 +1309,9 @@ class Item extends Database implements iItem {
 }
 
 $item = new Item();
+
+
+
 
 
 
@@ -1406,6 +1415,10 @@ class Stock extends Database implements iStock {
 $stock = new Stock();
 
 
+
+
+
+
 transaction.php
 
 <?php
@@ -1481,6 +1494,9 @@ class Stock extends Database implements iStock {
 
 }
 $stock = new Stock();
+
+
+
 
 
 user.php
@@ -1575,6 +1591,10 @@ if(isset($_POST['iName']) && isset($_POST['iPrice'])){
 $item->Disconnect();
 
 
+
+
+
+
 add_stock.php
 <?php 
 require_once('../class/Stock.php');
@@ -1598,6 +1618,10 @@ if(isset($_POST['item_id'])){
 $stock->Disconnect();
 
 
+
+
+
+
 add_transaction.php
 
 <?php 
@@ -1609,6 +1633,9 @@ if(isset($_POST['custName'])){
 	$change = $_POST['change'];
 	
 }
+
+
+
 
 
 
@@ -1657,6 +1684,10 @@ $expireds = $expired->all_expired();
 <?php 
 $expired->Disconnect();
  ?>
+ 
+ 
+ 
+ 
  
  all_item.php
  <?php 
@@ -1716,6 +1747,11 @@ $expired->Disconnect();
 <?php 
 $item->Disconnect();
  ?>
+ 
+ 
+ 
+ 
+ 
  
  all_sales.php
  
@@ -1791,6 +1827,11 @@ $dailySales = $sales->daily_sales($date);
 $sales->Disconnect();
  ?>
  
+ 
+ 
+ 
+ 
+ 
  all_stock.php
  
  <?php 
@@ -1835,6 +1876,10 @@ $sales->Disconnect();
 <?php 
 $stock->Disconnect();
  ?>
+ 
+ 
+ 
+ 
  
  all_stocklist.php
  <?php 
@@ -1907,6 +1952,10 @@ $stockList = $stock->all_stockList();
 $stock->Disconnect();
  ?>
  
+ 
+ 
+ 
+ 
  confirm_order.php
  
  <?php 
@@ -1942,6 +1991,10 @@ if(isset($_POST['click'])){
 }
 
 
+
+
+
+
 del_cart.php
 
 <?php 
@@ -1963,6 +2016,10 @@ if(isset($_POST['stock_id'])){
 }//end isset
 
 $stock->Disconnect();
+
+
+
+
 
 del_expired.php
 
@@ -1991,6 +2048,11 @@ if(isset($_POST['stock_id'])){
 }
 
 $expired->Disconnect();
+
+
+
+
+
 
 edit_item.php
 
@@ -2040,6 +2102,10 @@ if(isset($_POST['item_id'])){
 $item->Disconnect();
 
 
+
+
+
+
 login.php
 
 <?php 
@@ -2069,6 +2135,11 @@ if(isset($_POST['un'])){
 }
 
 $user->Disconnect();
+
+
+
+
+
 
 order.php
 
@@ -2206,6 +2277,10 @@ order.php
 </div>
 
 <br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
 
 
 print-sales.php
