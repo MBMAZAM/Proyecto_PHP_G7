@@ -2,7 +2,8 @@
 carpeta vista
 
 pantalla de inicio
-
+ddlñasdaskldaskld
+Mauricio maza
 
 home.php
 <?php 
